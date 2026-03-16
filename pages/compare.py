@@ -1,7 +1,11 @@
+import dash
 import pandas as pd
 import pathlib
 from dash import dcc, html
 import dash_bootstrap_components as dbc
+
+# Enregistrement de la page
+dash.register_page(__name__, path="/compare", name="Comparaison entre région", order=1)
 
 # Chemin absolu vers le fichier CSV
 PATH = pathlib.Path(__file__).parent.parent

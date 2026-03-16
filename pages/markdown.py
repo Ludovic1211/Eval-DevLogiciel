@@ -1,6 +1,10 @@
+import dash
 import pathlib
 from dash import dcc, html
 import dash_bootstrap_components as dbc
+
+# Enregistrement de la page
+dash.register_page(__name__, path="/markdown", name="Aide en ligne", order=2)
 
 # Chemin absolu vers les fichiers Markdown
 PATH = pathlib.Path(__file__).parent.parent

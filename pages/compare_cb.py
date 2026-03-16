@@ -23,7 +23,6 @@ def make_figure(region):
         title=f"Prix moyen dans le temps - {region}",
         labels={"AveragePrice": "Prix moyen ($)", "Date": "Date"},
     )
-    # Même échelle pour les deux graphiques
     fig.update_yaxes(range=[y_min * 0.95, y_max * 1.05])
     return fig
 

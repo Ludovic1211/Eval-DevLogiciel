@@ -1,9 +1,11 @@
-from dash import callback, Input, Output
 import pandas as pd
 import pathlib
+from dash import callback, Input, Output
 
+# Chemin absolu vers le fichier CSV
 PATH = pathlib.Path(__file__).parent.parent
 df = pd.read_csv(PATH / 'datas' / 'avocado.csv')
+
 
 @callback(
     Output("avocado-table", "data"),
