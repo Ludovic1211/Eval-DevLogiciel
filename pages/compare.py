@@ -22,24 +22,26 @@ layout = dbc.Container([
             className="bg-primary"
         ),
         dbc.CardBody([
+            # Ligne des sélecteurs de régions
             dbc.Row([
                 dbc.Col([
-                    dbc.Badge("Région 1", color="primary", className="mb-2"),
+                    dbc.Badge("Région 1", color="info", className="mb-2"),
                     dbc.Select(
                         id="region1-dropdown",
                         options=region_options,
                         value=regions[0],
                     ),
-                ], xs=12, md=6),
+                ], xs=12, md=6, className="mb-3 mb-md-0"),
                 dbc.Col([
-                    dbc.Badge("Région 2", color="primary", className="mb-2"),
+                    dbc.Badge("Région 2", color="info", className="mb-2"),
                     dbc.Select(
                         id="region2-dropdown",
                         options=region_options,
                         value=regions[1],
                     ),
                 ], xs=12, md=6),
-            ], className="mb-3"),
+            ], className="mb-4"),
+            # Ligne des graphiques
             dbc.Row([
                 dbc.Col([
                     dcc.Graph(id="graph-region1"),
@@ -49,5 +51,5 @@ layout = dbc.Container([
                 ], xs=12, md=6),
             ])
         ])
-    ])
+    ], className="shadow-sm")
 ], fluid=True)

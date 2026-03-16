@@ -11,10 +11,12 @@ PATH = pathlib.Path(__file__).parent.parent
 
 
 def read_md(filename):
+    """Lit le contenu d'un fichier Markdown."""
     with open(PATH / filename, encoding="utf-8") as f:
         return f.read()
 
 
+# Lecture des fichiers Markdown
 expli1 = read_md("expli1.md")
 expli2 = read_md("expli2.md")
 expli3 = read_md("expli3.md")
@@ -48,5 +50,5 @@ layout = dbc.Container([
                 ),
             ], start_collapsed=True),
         ])
-    ])
+    ], className="shadow-sm")
 ], fluid=True)

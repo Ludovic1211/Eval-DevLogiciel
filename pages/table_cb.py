@@ -13,7 +13,10 @@ df = pd.read_csv(PATH / 'datas' / 'avocado.csv')
     Input("type-dropdown", "value"),
 )
 def update_table(region, type_):
+    """Filtre le tableau selon la région et le type sélectionnés."""
+    # Filtre par région
     df_filtered = df[df["region"] == region]
+    # Filtre par type si "Tous" n'est pas sélectionné
     if type_ != "Tous":
         df_filtered = df_filtered[df_filtered["type"] == type_]
     return df_filtered.to_dict("records")

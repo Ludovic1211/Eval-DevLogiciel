@@ -2,10 +2,11 @@ import dash
 from dash import Dash, html
 import dash_bootstrap_components as dbc
 
-# Import des callbacks
+# Import des callbacks (nécessaire pour l'enregistrement auprès de Dash)
 import pages.table_cb
 import pages.compare_cb
 
+# Initialisation de l'application en mode multipages
 app = Dash(
     __name__,
     use_pages=True,
@@ -14,6 +15,7 @@ app = Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP],
 )
 
+# Barre de navigation principale
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Affichage des données", href="/", active="exact")),
@@ -27,6 +29,7 @@ navbar = dbc.NavbarSimple(
     fluid=True,
 )
 
+# Layout principal — la navbar + le contenu de la page active
 app.layout = dbc.Container([
     navbar,
     html.Div(className="mt-3"),

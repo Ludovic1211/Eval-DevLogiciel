@@ -13,6 +13,7 @@ y_max = df.groupby(["region", "Date"])["AveragePrice"].mean().max()
 
 
 def make_figure(region):
+    """Crée un graphique linéaire du prix moyen pour une région donnée."""
     df_filtered = df[df["region"] == region].copy()
     df_filtered["Date"] = pd.to_datetime(df_filtered["Date"])
     df_avg = df_filtered.groupby("Date")["AveragePrice"].mean().reset_index()
@@ -22,7 +23,9 @@ def make_figure(region):
         y="AveragePrice",
         title=f"Prix moyen dans le temps - {region}",
         labels={"AveragePrice": "Prix moyen ($)", "Date": "Date"},
+        template="simple_white",
     )
+    # Même échelle pour les deux graphiques pour une comparaison visuelle efficace
     fig.update_yaxes(range=[y_min * 0.95, y_max * 1.05])
     return fig
 
@@ -32,6 +35,7 @@ def make_figure(region):
     Input("region1-dropdown", "value"),
 )
 def update_graph1(region):
+    """Met à jour le graphique de la région 1."""
     return make_figure(region)
 
 
@@ -40,4 +44,5 @@ def update_graph1(region):
     Input("region2-dropdown", "value"),
 )
 def update_graph2(region):
+    """Met à jour le graphique de la région 2."""
     return make_figure(region)
